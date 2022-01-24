@@ -3,17 +3,15 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Aparecida Nutrição</title>
-		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
-		<script>
-			console.log("Ola Mundo");
-		</script>
+		
 	</head>
 	<body>
 		<header>
 			<div class="container">
-				<h1>Aparecida Nutrição</h1>
+				<h1 class="titulo-principal">Aparecida Nutrição</h1>
 			</div>
 		</header>
 		<main>
@@ -30,9 +28,9 @@
 						</tr>
 					</thead>
 					<tbody id="tabela-pacientes">
-						<tr class="paciente" >
+						<tr class="paciente" id="primeiro-paciente">
 							<td class="info-nome">Paulo</td>
-							<td class="info-peso">100</td>
+							<td class="info-peso">500</td>
 							<td class="info-altura">2.00</td>
 							<td class="info-gordura">10</td>
 							<td class="info-imc">0</td>
@@ -57,7 +55,7 @@
 						<tr class="paciente">
 							<td class="info-nome">Douglas</td>
 							<td class="info-peso">85</td>
-							<td class="info-altura">1.73</td>
+							<td class="info-altura">4</td>
 							<td class="info-gordura">24</td>
 							<td class="info-imc">0</td>
 						</tr>
@@ -74,5 +72,6 @@
 			</section>
 		</main>
 
+		<script src="js/principal.js"></script>
 	</body>
 </html>
