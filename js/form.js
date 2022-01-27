@@ -9,13 +9,21 @@ botaoAdicionar.addEventListener("click", function(event){
 
     var pacienteTr = montaTr(paciente);
 
+    var erros = validaPaciente(paciente);
+
+    if (erros.length>0){
+        exibeMensagensDeErro(erros);
+        mensagensErro.textContent = erros;
+        return
+    }
+
     var tabela = document.querySelector("#tabela-pacientes");
 
     tabela.appendChild(pacienteTr);
 
     form.reset();
-
-    
+    var mensagensErro = document.querySelector("#mensagens-erro");
+    mensagensErro.innerHTML = "";
 });
 
 function obtemPacienteDoFormulario(form){
@@ -29,6 +37,17 @@ function obtemPacienteDoFormulario(form){
     }
 
     return paciente
+}
+
+function exibeMensagensDeErro(erros){
+    var ul = document.querySelector("#mensagens-erro");
+    ul.innerHTML = "";
+
+    erros.forEach(function(erro){
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+    });
 }
 
 function montaTr(paciente){
@@ -63,4 +82,35 @@ function montaTd(dado, classe){
     td.classList.add(classe);
 
     return td;
+}
+
+function validaPaciente(paciente) {
+
+    var erros = [];
+
+    if (paciente.nome.length == 0){
+        erros.push("Nome é obrigatório!")
+    }
+
+    if (paciente.peso.length == 0){
+        erros.push("Peso é obrigatório!")
+    }
+
+    if (!validaPeso(paciente.peso)) {
+        erros.push("Peso é inválido");
+    }
+
+    if (paciente.altura.length == 0){
+        erros.push("Altura é obrigatória!")
+    }
+
+    if (!validaAltura(paciente.altura)) {
+        erros.push("Altura é inválida");
+    }
+
+    if (paciente.gordura.length == 0){
+        erros.push("Valor de gordura é obrigatório!")
+    }
+
+    return erros;
 }
